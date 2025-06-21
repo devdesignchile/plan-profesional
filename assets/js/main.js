@@ -112,7 +112,6 @@
   /**
    * Initiate Pure Counter
    */
-  new PureCounter();
 
   /**
    * Frequently Asked Questions Toggle

@@ -9,17 +9,17 @@
 /* Colores generales */
 :root { 
   --background-color: #ffffff; /* fondo blanco clínico */
-  --default-color: #2f2f2f; /* texto gris oscuro legible */
-  --heading-color: #1d3557; /* azul clínico para encabezados */
-  --accent-color: #4db6ac; /* verde menta como color llamativo */
-  --surface-color: #f7f9fc; /* gris muy claro para tarjetas/fondos */
+  --default-color: #F5F5F5; /* texto gris oscuro legible */
+  --heading-color: #004C74; /* azul clínico para encabezados */
+  --accent-color: #A7D8FF; /* verde menta como color llamativo */
+  --surface-color: #336996; /* gris muy claro para tarjetas/fondos */
   --contrast-color: #ffffff; /* texto en fondos oscuros o botones */
 }
 
 /* Colores específicos para el menú de navegación */
 :root {
-  --nav-color: #1d3557; /* igual que los títulos */
-  --nav-hover-color: #4db6ac; /* igual que el color de acento */
+  --nav-color: #004C74; /* igual que los títulos */
+  --nav-hover-color: #336996; /* igual que el color de acento */
   --nav-mobile-background-color: #ffffff;
   --nav-dropdown-background-color: #ffffff;
   --nav-dropdown-color: #1d3557;
@@ -55,6 +55,72 @@ body {
   font-family: var(--default-font);
 }
 
+@media (max-width: 768px) {
+  .mobile {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+}
+
+/* Custom classes para el equipo médico */
+.equipo-card {
+  border: none;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background: var(--surface-color, #fff);
+}
+.equipo-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px 0 rgba(0, 76, 116, 0.15);
+}
+.equipo-card img {
+  object-fit: cover;
+  object-position: center 1%; /* Baja el encuadre un poco */
+  height: 320px; /* Más alto para que se vea la cara centrada */
+  width: 100%;
+  background: #f1f7fc;
+  transition: object-position 0.3s;
+}
+.heading-font {
+  font-family: var(--heading-font), 'Lato', sans-serif !important;
+}
+.text-accent {
+  color: var(--accent-color) !important;
+}
+
+.equipo-card .card-body {
+  color: var(--contrast-color, #fff); /* Usa blanco por defecto */
+}
+
+.equipo-card .card-title,
+.equipo-card .card-text,
+.equipo-card ul li,
+.equipo-card strong {
+  color: var(--contrast-color, #fff) !important;
+}
+
+/* Si tienes links, íconos u otros detalles, puedes reforzarlo así: */
+.equipo-card .bi,
+.equipo-card a {
+  color: var(--accent-color, #A7D8FF) !important; /* O blanco si prefieres */
+}
+
+p{
+  color: #004C74;
+}
+
+.texto-principal{
+  color: #004C74;
+}
+
+.texto-secundario{
+  color: #A7D8FF;
+}
+
 a {
   color: var(--accent-color);
   text-decoration: none;
@@ -80,15 +146,15 @@ h6 {
 ------------------------------*/
 .btn-service{
   padding: 5px 10px;
-  background-color: #4db6ac;
-  color: white;
+  background-color: #A7D8FF;
+  color: #004C74;
   border-radius: 5px;
 }
 
 .btn-service:hover{
   padding: 5px 10px;
-  background-color: #6b9e9b;
-  color: white;
+  background-color: #004C74;
+  color: #A7D8FF;
   border-radius: 5px;
 }
 
@@ -132,14 +198,14 @@ h6 {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   border: none;
-  background-color: #4db6ac;
+  background-color: #A7D8FF;
   color: #f1f7fc;
   height: 70px;
 }
 
 .btn-contact:hover {
   background-color: #f1f7fc;
-  color: #4db6ac;
+  color: #004C74;
   transition: .3s;
 }
 
@@ -271,8 +337,7 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 36px;
-  margin-right: 8px;
+  max-height: 8vh;
 }
 
 .header .logo h1 {
@@ -634,7 +699,7 @@ h6 {
   border-radius: 50%;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 50%);
   font-size: 16px;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: color-mix(in srgb, var(--heading-color), transparent 20%);
   margin-right: 10px;
   transition: 0.3s;
 }
@@ -678,7 +743,7 @@ h6 {
 }
 
 .footer .footer-links ul a {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: color-mix(in srgb, var(--heading-color), transparent 30%);
   display: inline-block;
   line-height: 1;
 }
@@ -908,16 +973,6 @@ section,
   overflow: hidden;
 }
 
-.hero img {
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-
 .hero .container {
   z-index: 3;
 }
@@ -941,6 +996,9 @@ section,
 
 .hero .content {
   margin-top: 40px;
+  background-color: rgba(255, 255, 255, 0.8); /* Blanco con 80% de opacidad */
+  border-radius: 16px;
+  padding: 20px;
 }
 
 .hero .content .why-box {
@@ -1150,10 +1208,12 @@ section,
   font-size: 22px;
 }
 
-.services .service-item p {
+.services .service-item p,
+.services .service-item ul, li {
   line-height: 24px;
   font-size: 14px;
   margin-bottom: 0;
+  color: var(--heading-color);
 }
 
 .services .service-item:hover {
@@ -1175,7 +1235,7 @@ section,
 
 .services .service-item:hover h3,
 .services .service-item:hover p {
-  color: var(--contrast-color);
+  color: var(--surface-color);
 }
 
 /*--------------------------------------------------------------
@@ -1193,7 +1253,7 @@ section,
   border: 0;
   padding: 12px 15px 12px 0;
   transition: 0.3s;
-  color: var(--default-color);
+  color: var(--heading-color);
   border-radius: 0;
   border-right: 2px solid color-mix(in srgb, var(--default-color), transparent 90%);
   font-weight: 600;
@@ -1201,11 +1261,11 @@ section,
 }
 
 .departments .nav-link:hover {
-  color: var(--accent-color);
+  color: var(--surface-color);
 }
 
 .departments .nav-link.active {
-  color: var(--accent-color);
+  color: var(--surface-color);
   border-color: var(--accent-color);
   background-color: var(--background-color);
 }
@@ -1235,7 +1295,7 @@ section,
   }
 
   .departments .nav-link.active {
-    color: var(--accent-color);
+    color: var(--surfer-color);
     background: var(--accent-color);
   }
 }
@@ -1244,7 +1304,7 @@ section,
 # Doctors Section
 --------------------------------------------------------------*/
 .doctors .team-member {
-  background-color: var(--surface-color);
+  background-color: rgba(128, 128, 128, 0.1);
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   position: relative;
   border-radius: 5px;
@@ -1261,7 +1321,7 @@ section,
   }
 }
 
-.doctors .team-member .pic {
+.pic {
   overflow: hidden;
   width: 150px;
   border-radius: 50%;
@@ -1479,19 +1539,32 @@ section,
 /*--------------------------------------------------------------
 # Gallery Section
 --------------------------------------------------------------*/
+
+
 .gallery .gallery-item {
+  position: relative;
+  width: 100%;
+  padding-top: 75%; /* Esto mantiene una relación de aspecto cuadrada o 4:3 según el valor */
   overflow: hidden;
   border-right: 3px solid var(--background-color);
   border-bottom: 3px solid var(--background-color);
 }
 
 .gallery .gallery-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all ease-in-out 0.4s;
   transition: all ease-in-out 0.4s;
 }
 
 .gallery .gallery-item:hover img {
   transform: scale(1.1);
 }
+
 
 /*--------------------------------------------------------------
 # Contact Section
